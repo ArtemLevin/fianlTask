@@ -1,6 +1,4 @@
-﻿// method to create an array filled with string elements
-
-
+﻿
 void PrintArray(string[] array) // метод для вывода массива с учетом расстановки скобок
 {
     for (int i = 0; i < array.Length; i++)
@@ -38,7 +36,7 @@ string[] CreateAndPrintStringArray() // рандомизируем массив,
     string[] StringArray = new string[lengthOfArray]; // инициализируем новый массив
     for (int i = 0; i < lengthOfArray; i++)
     {
-        int StringLength = rnd.Next(1, 11); // рандомизируем длину новой строки
+        int StringLength = rnd.Next(0, 11); // рандомизируем длину новой строки
         string str = ""; // инициализируем новую строку
         char letter; // инициализируем новую букву для новой строки
         for (int j = 0; j < StringLength; j++)
