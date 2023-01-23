@@ -1,9 +1,7 @@
 ﻿// method to create an array filled with string elements
 
-Random rnd = new Random();
-int lengthOfArray = rnd.Next(5, 11); // рандомизируем длину массива
 
-void PrintArray(string[] array) // метод для  вывода массива с учетом расстановки скобок
+void PrintArray(string[] array) // метод для вывода массива с учетом расстановки скобок
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -33,34 +31,35 @@ void PrintArray(string[] array) // метод для  вывода массив�
     }
 }
 
-string[] CreateAndPrintStringArray(int lengthOfArray)
+string[] CreateAndPrintStringArray() // рандомизируем массив, наполненный строками рандомизированной длины
 {
+    Random rnd = new Random();
+    int lengthOfArray = rnd.Next(5, 11); // рандомизируем длину массива
     string[] StringArray = new string[lengthOfArray]; // инициализируем новый массив
     for (int i = 0; i < lengthOfArray; i++)
     {
-        int StringLength = rnd.Next(1, 11); // рандомизируем длину нового слова
-        string str = ""; // инициализируем новое слово
-        char letter; // инициализируем новую букву для нового слова
+        int StringLength = rnd.Next(1, 11); // рандомизируем длину новой строки
+        string str = ""; // инициализируем новую строку
+        char letter; // инициализируем новую букву для новой строки
         for (int j = 0; j < StringLength; j++)
         {
             int randValue = rnd.Next(0, 26); // рандомзируем новую букву
             letter = Convert.ToChar(randValue + 65); // переводим ее в тип char
-            str +=letter ; // добавляем новую букву к формируемому слову
+            str +=letter ; // добавляем новую букву к формируемой строке
         }
-        StringArray[i] = str; // добавляем новое слово в массив
+        StringArray[i] = str; // добавляем новую строку в массив
     }
     PrintArray(StringArray);
     return StringArray;
 }
 
-void NotMoreThanThreeSymbolsStringArray () // метод для определения слов заданной длины и записи их в новый массив
+void NotMoreThanThreeSymbolsStringArray () // метод для определения строк заданной длины и записи их в новый массив
 {
-    string[] stringArray = new string [lengthOfArray];
-    stringArray = CreateAndPrintStringArray(lengthOfArray); // создаем массив из слов при помощи метода
+    string[] stringArray = CreateAndPrintStringArray(); // создаем массив из строк при помощи метода
 
     int newStringArrayLength = 0;
 
-    for (int i = 0; i < lengthOfArray; i++) // цикл для определения длины массива с элементами длиной не больше 3 символов
+    for (int i = 0; i < stringArray.Length; i++) // цикл для определения длины массива со строками длиной не больше 3 символов
     {
         int length = stringArray[i].Length;
         if (length <= 3)
@@ -70,14 +69,15 @@ void NotMoreThanThreeSymbolsStringArray () // метод для определе
     }
 
     Console.WriteLine();
+
     string[] newStringArray = new string[newStringArrayLength]; // инициализируем новый массив
-    int count = 0; // счетчик для количества индексации слов в номо массиве
-    for (int i = 0; i < stringArray.Length; i++) // цикл для определения слов заданной длины и записи их в новый массив
+    int count = 0; // счетчик для индексации строк в новом массиве
+    for (int i = 0; i < stringArray.Length; i++) // цикл для определения строк заданной длины и записи их в новый массив
     {
         int length = stringArray[i].Length;
         if (length <= 3)
         {
-            newStringArray[count] = stringArray[i];
+            newStringArray[count] = stringArray[i]; // записываем в новый массив строки заданной  длины
             Console.Write (newStringArray[count] + " ");
             count++;
         }
