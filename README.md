@@ -14,4 +14,7 @@
 
 >>>4) выведет полученный массив;
 
-![блок-схема](C:\Users\PC\Desktop\Scheme.png)
+**Ниже приведена блок-схема основного метода:**
+
+
+![блок-схема](<a href="https://ibb.co/Z2mK5xL"><img src="https://i.ibb.co/bbJLTXW/image.png" alt="image" border="0"></a>)
