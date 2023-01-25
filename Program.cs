@@ -5,26 +5,30 @@ void PrintArray(string[] array) // метод для вывода массива
     {
         if (i == 0 & array.Length > 1)
         {
-            Console.Write("[" + " " + array[i] + " ");
+            Console.Write("[" + " " +"\"" + array[i] +"\"" + "," + " ");
         }
 
-        if (i == 0 & array.Length <2)
-        {
-            Console.Write("[" + " " + array[i] + " " + "]");
-        }
+        // if (i == 0 & array.Length <2)
+        // {
+        //     Console.Write("[" + " " + "\"" + array[i] + "\"" + "," + " " + "]");
+        // }
 
         if (i != 0 & i != array.Length-1 )
         {
-            Console.Write(array[i] + " ");
+            Console.Write("\"" +array[i] +"\""+"," + " ");
         }
 
-        if (i == array.Length-1 & array.Length > 0 )
+        if (i == array.Length-1 & array.Length > 1 )
         {
-            Console.Write(array[i] + " " + "]");
+            Console.Write("\"" +array[i] +"\"" + " " + "]");
         }
         if (array.Length == 0)
         {
             Console.WriteLine("[ ]");
+        }
+        if (array.Length == 1)
+        {
+            Console.WriteLine("[" + " " +"\"" +array[i] +"\"" + " " + "]");
         }
     }
 }
@@ -32,8 +36,8 @@ void PrintArray(string[] array) // метод для вывода массива
 string[] CreateAndPrintStringArray() // генерируем массив, наполненный строками рандомизированной длины
 {
     Random rnd = new Random();
-    int lengthOfArray = rnd.Next(5, 11); // рандомизируем длину массива
-    string[] StringArray = new string[lengthOfArray]; // инициализируем новый массив
+    int lengthOfArray = rnd.Next(1, 7); // рандомизируем длину массива
+    string[] stringArray = new string[lengthOfArray]; // инициализируем новый массив
     for (int i = 0; i < lengthOfArray; i++)
     {
         int StringLength = rnd.Next(0, 11); // рандомизируем длину новой строки
@@ -42,13 +46,13 @@ string[] CreateAndPrintStringArray() // генерируем массив, на�
         for (int j = 0; j < StringLength; j++)
         {
             int randValue = rnd.Next(0, 26); // рандомзируем новую букву
-            letter = Convert.ToChar(randValue+65); // переводим ее в тип char
+            letter = Convert.ToChar(randValue+30); // переводим ее в тип char
             str +=letter ; // добавляем новую букву к формируемой строке
         }
-        StringArray[i] = str; // добавляем новую строку в массив
+        stringArray[i] = str; // добавляем новую строку в массив
     }
-    PrintArray(StringArray);
-    return StringArray;
+    PrintArray(stringArray);
+    return stringArray;
 }
 
 void NotMoreThanThreeSymbolsStringArray () // метод для определения строк заданной длины и записи их в новый массив
@@ -66,7 +70,12 @@ void NotMoreThanThreeSymbolsStringArray () // метод для определе
         }
     }
 
-    Console.WriteLine();
+    Console.Write("  --->  ");
+
+    if (newStringArrayLength == 0)
+    {
+        Console.WriteLine("[ ]");
+    }
 
     string[] newStringArray = new string[newStringArrayLength]; // инициализируем новый массив
     int count = 0; // счетчик для индексации строк в новом массиве
